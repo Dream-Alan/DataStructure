@@ -1,9 +1,26 @@
 package DataStructure.Complexity;
 
 public class FibonacciNumberDemo1 {
+
     public static void main(String[] args) {
         System.out.println(fib1(10));
-        System.out.println(fib2(64));
+        System.out.println(fib2(10));
+        TimeTool t=new TimeTool();
+        TimeTool.Task task1=new TimeTool.Task() {
+            @Override
+            public void execute() {
+                fib1(45);
+            }
+        };
+        TimeTool.Task task2=new TimeTool.Task() {
+            @Override
+            public void execute() {
+                fib2(45);
+            }
+        };
+        TimeTool.test("fib1", task1);
+        TimeTool.test("fib2", task2);
+
     }
     public static int fib1(int n){
         if(n<=1){
