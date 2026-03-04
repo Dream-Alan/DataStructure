@@ -18,9 +18,15 @@ public class FibonacciNumberDemo1 {
                 fib2(45);
             }
         };
+        TimeTool.Task task3=new TimeTool.Task() {
+            @Override
+            public void execute() {
+                fib3(45);
+            }
+        };
         TimeTool.test("fib1", task1);
         TimeTool.test("fib2", task2);
-
+        TimeTool.test("fib3", task3);
     }
     public static int fib1(int n){
         if(n<=1){
@@ -44,4 +50,16 @@ public class FibonacciNumberDemo1 {
         return second;//循环
     }//改进后处理快,内存占用小
     //复杂度估计:1+1+n-1+n-1->O(n)
+    public static int fib3(int n){
+        if(n<=1){
+            return n;
+        }
+        int first=0;
+        int second=1;
+        while (n-->1){
+            second+=first;
+            first=second-first;
+        }
+        return second;//循环
+    }
 }
