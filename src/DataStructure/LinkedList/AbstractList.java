@@ -1,0 +1,27 @@
+package DataStructure.LinkedList;
+
+public abstract class AbstractList<E> implements List<E> {
+    protected int size;
+    protected void outOfBounds(int index){
+        throw new IndexOutOfBoundsException("Index:"+index+",Size:"+size);
+    }
+    protected void rangeCheck(int index){
+        if(index<0||index>=size){
+            outOfBounds(index);
+        }
+    }
+    protected void rangeCheckForAdd(int index) {
+        if (index < 0 || index > size) {
+            outOfBounds(index);
+        }
+    }
+    public int size(){
+        return size;
+    }
+    public boolean isEmpty(){
+        return size==0;
+    }
+    public boolean contains(E elements){
+        return indexOf(elements)!=ELEMENT_NOT_FOUND;
+    }
+}
