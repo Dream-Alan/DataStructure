@@ -23,11 +23,19 @@ public class ArrayList<E> {
     public boolean contains(E elements){
         return indexOf(elements)!=ELEMENT_NOT_FOUND;
     }
-    public int indexOf(E elements){
-        for(int index=0;index<size;index++) {
-            if (elements.equals(this.elements[index])) {
+    public int indexOf(E element){
+        if(element==null){
+            for(int i=0;i<size;i++){
+                if(elements[i]==null){
+                    return i;
+                }
+            }
+        }else{
+            for(int index=0;index<size;index++) {
+            if (element.equals(elements[index])) {
                 return index;
             }
+        }
         }
         return ELEMENT_NOT_FOUND;
     }
@@ -59,7 +67,7 @@ public class ArrayList<E> {
         for(int i=index+1;i<size;i++){
             elements[i-1]=elements[i];
         }
-        size--;
+        elements[--size]=null;
         return elements[index];
     }
     public void remove(E elements){
@@ -69,6 +77,9 @@ public class ArrayList<E> {
         }
     }
     public void clear(){
+        for(int i=0;i<size;i++){
+            elements[i]=null;
+        }
         size=0;
     }
     private void outOfBounds(int index){

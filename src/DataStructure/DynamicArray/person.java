@@ -1,5 +1,7 @@
 package DataStructure.DynamicArray;
 
+import java.util.Objects;
+
 public class person {
     public person() {
     }
@@ -32,5 +34,20 @@ public class person {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        person person = (person) o;
+        return age == person.age && Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(name);
+        result = 31 * result + age;
+        return result;
     }
 }
