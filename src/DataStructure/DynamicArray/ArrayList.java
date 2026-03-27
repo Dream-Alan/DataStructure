@@ -1,5 +1,7 @@
 package DataStructure.DynamicArray;
 
+import org.w3c.dom.Node;
+
 @SuppressWarnings({"unused", "UnusedReturnValue", "StatementWithEmptyBody", "ManualArrayCopy"})
 public class ArrayList<E> implements List<E> {
     private int size;
@@ -95,6 +97,19 @@ public class ArrayList<E> implements List<E> {
             outOfBounds(index);
         }
     }
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("size=").append(size).append(",").append(" [");
+        for (int i=0;i<size;i++){
+            if(i!=0){
+                stringBuilder.append(",");
+            }
+            stringBuilder.append(elements[i]);
+        }
+        stringBuilder.append("]");
+        return stringBuilder.toString();
+    }
     private void ensureCapacity(int i) {
         int oldCapacity=elements.length;
         if(i>oldCapacity){
@@ -108,19 +123,5 @@ public class ArrayList<E> implements List<E> {
             System.out.println(oldCapacity+"扩容为"+newCapacity);
         } else {
         }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("size=").append(size).append(",").append(" [");
-        for (int i=0;i<size;i++){
-            if(i!=0){
-                stringBuilder.append(",");
-            }
-            stringBuilder.append(elements[i]);
-        }
-        stringBuilder.append("]");
-        return stringBuilder.toString();
     }
 }

@@ -1,5 +1,7 @@
 package DataStructure.LinkedList;
 
+
+
 public abstract class AbstractList<E> implements List<E> {
     protected int size;
     protected void outOfBounds(int index){
@@ -23,5 +25,9 @@ public abstract class AbstractList<E> implements List<E> {
     }
     public boolean contains(E elements){
         return indexOf(elements)!=ELEMENT_NOT_FOUND;
+    }
+    public void add(E element) {
+        add(size,element);
+        size++;
     }
 }

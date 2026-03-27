@@ -17,5 +17,7 @@ public class Main {
         li2.add(5,85);
         Assert.test(li2.get(5)!=85);
         System.out.println(li2);
+
+
     }
 }
