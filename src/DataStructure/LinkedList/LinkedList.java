@@ -12,11 +12,13 @@ public class LinkedList<E> extends AbstractList<E>{
 
     @Override
     public E get(int index) {
+        rangeCheck(index);
         return getNode(index).element;
     }
 
     @Override
     public E set(int index, E element) {
+        rangeCheck(index);
         Node<E> node= getNode(index);
         E old = node.element;
         node.element = element;
@@ -65,6 +67,8 @@ public void add(int index, E element) {
 
     @Override
     public E remove(int index) {
+        rangeCheck(index);
+
         if (index == 0) {
             Node<E> oldHead = head;
             head = head.next;
